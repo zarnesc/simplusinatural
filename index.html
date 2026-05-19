@@ -1270,8 +1270,8 @@
   **Trimiterea formularului nu garantează rezervarea locului.
   Programarea este confirmată doar după verificarea disponibilității și confirmarea mea ulterioară.
 </p>
+	<p class="contact-note" id="status"></p>
   </form>
-	<p id="status"></p>
 </section>
 
 <!-- FOOTER -->
@@ -1288,7 +1288,7 @@
 document.getElementById("contact-form").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    emailjs.sendForm("service_fddse7f", "", this)
+    emailjs.sendForm("service_fddse7f", "template_1872rnu", this)
       .then(() => {
         document.getElementById("status").innerText = "Message sent successfully!";
       }, (error) => {

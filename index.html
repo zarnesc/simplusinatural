@@ -1548,20 +1548,25 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
   menuClose.addEventListener('click', closeMenu);
   menuOverlay.addEventListener('click', closeMenu);
 
-  document.querySelectorAll('.menu-link').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
+document.querySelectorAll('.menu-link').forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
 
 // Flip cards - click pe mobil
 document.querySelectorAll('.service-card').forEach(card => {
-  card.addEventListener('click', () => {
-  
-      // flip pe mobil/tableta
+
+  card.addEventListener('click', (e) => {
+
+    // permite click normal pe buton
+    if (e.target.closest('.btn-flip')) return;
+
+    // flip doar pe mobil/tableta
     if (window.innerWidth <= 1024) {
       card.classList.toggle('flipped');
     }
-    //card.classList.toggle('flipped');
+
   });
+
 });
 </script>
 

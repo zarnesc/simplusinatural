@@ -201,6 +201,7 @@
     text-transform: uppercase;
     color: #E8C9B8;
     margin-bottom: 1.5rem;
+	font-weight: 400;
   }
 
   .hero-title {
@@ -480,6 +481,7 @@
   min-height: 610px;
   transition: transform 0.7s ease;
   transform-style: preserve-3d;
+  will-change: transform;
 }
 
 @media (hover: hover) {
@@ -909,29 +911,20 @@
     .service-card { padding: 1.5rem; }
 
 	  	
-	.service-card-inner {
-  transform-style: flat;
+.service-card-inner {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
 }
-
 .service-card-front,
 .service-card-back {
-  -webkit-backface-visibility: visible;
-  backface-visibility: visible;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
-
-.service-card:not(.flipped) .service-card-back {
-  display: none;
-}
-
-.service-card.flipped .service-card-front {
-  display: none;
-}
-
 .service-card.flipped .service-card-inner {
-  transform: none;
+  transform: rotateY(180deg);
 }
 .service-card-back {
-  transform: none;
+  transform: rotateY(180deg);
 }
 
     .gallery { padding: 4rem 2rem; }
@@ -1001,21 +994,39 @@
   .photo-sm-tall { min-height: 200px; }
 
   .services { padding: 3rem 1.5rem; }
-  .services-grid { grid-template-columns: 1fr; }
-  .service-card { padding: 1.5rem; }
-  .service-img { width: 100%; height: auto; max-height: 280px; object-fit: contain; }
+ .services-grid {
+  grid-template-columns: 1fr;
+}
 
-  .service-card-inner { min-height: unset; }
-  .service-card-front,
-  .service-card-back {
-    position: relative;
-    height: auto;
-    min-height: unset;
-    transform: none;
-  }
-  .service-card.flipped .service-card-front { display: none; }
-  .service-card:not(.flipped) .service-card-back { display: none; }
+.service-card {
+  padding: 1.5rem;
+  height: auto;
+}
 
+.service-img {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: contain;
+}
+
+.service-card-inner {
+  min-height: 520px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.service-card-front,
+.service-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.service-card-back {
+  transform: rotateY(180deg);
+}
   .gallery { padding: 3rem 1.5rem; }
   .gallery-item {
     min-width: 100%;
@@ -1040,12 +1051,6 @@
     align-self: center;
     width: 100%;
     text-align: center;
-
-    /* Buton trimite - centrat doar pe mobil */
-    .contact-form .btn-light {
-      align-self: center;
-      width: 100%;
-      text-align: center;
     }
   }
 
@@ -1256,6 +1261,7 @@
       <a href="#contact" class="btn-flip">Programează acum</a>
     </div>
   </div>
+</div>
 </section>
 
 <!-- GALLERY / PORTFOLIO -->
@@ -1298,8 +1304,7 @@
 <div class="gallery-item">
         <img src="./images/WhatsApp Image 2026-05-18 at 18.41.00.jpeg" alt="Machiaj Eveniment">
         <p class="gallery-item-label">Machiaj Eveniment</p>
-
-
+      </div>
     </div>
   </div>
   <div class="gallery-nav">
@@ -1448,7 +1453,7 @@
     </div>
     <button class="btn-light" type="submit">Trimite mesajul</button>
 	<p class="contact-note">
-  **Trimiterea formularului nu garantează rezervarea locului.
+   <strong>Trimiterea formularului nu garantează rezervarea locului.</strong>
   Programarea este confirmată doar după verificarea disponibilității și confirmarea mea ulterioară.
 </p>
 	<p class="contact-note" id="status"></p>
@@ -1550,7 +1555,7 @@ document.querySelectorAll('.service-card').forEach(card => {
   card.addEventListener('click', () => {
   
       // flip pe mobil/tableta
-    if (window.innerWidth <= 900) {
+    if (window.innerWidth <= 1024) {
       card.classList.toggle('flipped');
     }
     //card.classList.toggle('flipped');

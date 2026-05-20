@@ -986,63 +986,60 @@
   }
 }
 
-
   /* Mobil */
   @media (max-width: 540px) {
-    .hero-image { height: 100vw; }
-    .hero-title { font-size: 2.4rem; }
-    .hero-text { padding: 2rem 1.5rem 3rem; align-items: center; text-align: center; }
-    .hero-eyebrow { text-align: center; }
-    .hero-sub { text-align: center; }
-    .btn-primary { align-self: center; }
+  .hero-image { height: 100vw; }
+  .hero-title { font-size: 2.4rem; }
+  .hero-text { padding: 2rem 1.5rem 3rem; align-items: center; text-align: center; }
+  .hero-eyebrow { text-align: center; }
+  .hero-sub { text-align: center; }
+  .btn-primary { align-self: center; }
 
-    .about { padding: 3rem 1.5rem; }
-    .about-images { grid-template-columns: 1fr; }
-    .about-img-1 { display: none; }
-    .photo-sm-tall { min-height: 200px; }
+  .about { padding: 3rem 1.5rem; }
+  .about-images { grid-template-columns: 1fr; }
+  .about-img-1 { display: none; }
+  .photo-sm-tall { min-height: 200px; }
 
-    .services { padding: 3rem 1.5rem; }
-    .services-grid { grid-template-columns: 1fr; }
-    .service-card { padding: 1.5rem; }
-    .service-img { width: 100%; height: auto; max-height: 280px; object-fit: contain; }
+  .services { padding: 3rem 1.5rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card { padding: 1.5rem; }
+  .service-img { width: 100%; height: auto; max-height: 280px; object-fit: contain; }
 
-	.service-card-inner {
-     min-height: unset;
-		
-    .service-card-front,
-    .service-card-back {
-     position: relative;
-     height: auto;
-     min-height: unset;
-}
+  .service-card-inner { min-height: unset; }
+  .service-card-front,
+  .service-card-back {
+    position: relative;
+    height: auto;
+    min-height: unset;
+    transform: none;
+  }
+  .service-card.flipped .service-card-front { display: none; }
+  .service-card:not(.flipped) .service-card-back { display: none; }
 
-.service-card.flipped .service-card-front {
-  display: none;
-}
+  .gallery { padding: 3rem 1.5rem; }
+  .gallery-item {
+    min-width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
 
-.service-card:not(.flipped) .service-card-back {
-  display: none;
-}
+  .testimoniale { padding: 3rem 1.5rem; }
+  .testimonial-card { min-width: 100%; max-width: 100%; }
 
-    .gallery { padding: 3rem 1.5rem; }
-    .gallery-item {
-      min-width: 100%;
-      max-width: 100%;
-      height: auto;
-      aspect-ratio: 4 / 5;
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
+  .contact { padding: 3rem 1.5rem; }
+  footer { padding: 1.5rem; }
 
-    .testimoniale { padding: 3rem 1.5rem; }
-    .testimonial-card { min-width: 100%; max-width: 100%; }
-
-    .contact { padding: 3rem 1.5rem; }
-    footer { padding: 1.5rem; }
+  .contact-form .btn-light {
+    align-self: center;
+    width: 100%;
+    text-align: center;
 
     /* Buton trimite - centrat doar pe mobil */
     .contact-form .btn-light {
@@ -1051,6 +1048,7 @@
       text-align: center;
     }
   }
+
 </style>
 <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">

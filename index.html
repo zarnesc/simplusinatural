@@ -1562,7 +1562,7 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
 
     emailjs.sendForm("service_fddse7f", "template_1872rnu", this)
       .then(() => {
-        document.getElementById("status").innerText = "Message sent successfully!";
+        document.getElementById("status").innerText = "Mesajul tău a fost trimis cu succes!";
       }, (error) => {
         document.getElementById("status").innerText = "Failed to send message.";
         console.error(error);

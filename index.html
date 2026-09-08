@@ -411,6 +411,38 @@
     border-bottom: 1px solid var(--blush);
     padding-bottom: 2px;
   }
+  /* TABS */
+.services-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(196, 122, 90, 0.2);
+}
+
+.services-tab {
+  background: none;
+  border: none;
+  padding: 0.85rem 2.5rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s;
+  margin-bottom: -1px;
+}
+
+.services-tab:hover { color: var(--accent); }
+.services-tab.active { color: var(--accent); border-bottom: 2px solid var(--accent); }
+
+.services-panel { display: none; }
+.services-panel.active { display: block; }
+.services-grid.cols-pachete {
+  grid-template-columns: repeat(4, 1fr);
+}
 
   /* GALLERY */
   .gallery { padding: 7rem 5rem; background: var(--warm-white); }
@@ -941,6 +973,9 @@
 .service-card-back {
   transform: rotateY(180deg);
 }
+.services-grid.cols-pachete {
+  grid-template-columns: 1fr 1fr;
+}
 
     .gallery { padding: 4rem 2rem; }
     .gallery-item { min-width: 200px; max-width: 200px; height: 250px; }
@@ -992,6 +1027,7 @@
   .service-card-front .service-desc {
     font-size: 0.76rem;
   }
+  .services-tab { padding: 0.75rem 1.5rem; font-size: 0.72rem; }
 }
 /* Mobil */
 @media (max-width: 540px) {
@@ -1108,6 +1144,9 @@
 
 .service-card-back {
   transform: rotateY(180deg);
+}
+.services-grid.cols-pachete {
+  grid-template-columns: 1fr;
 }
   .gallery { padding: 3rem 1.5rem; }
   .gallery-item {
@@ -1246,106 +1285,222 @@
     <h2 class="section-title">Servicii</h2>
   </div>
 
-  <div class="services-grid">
+  <!-- TAB-URI -->
+  <div class="services-tabs">
+    <button class="services-tab active" data-tab="individuale">Servicii individuale</button>
+    <button class="services-tab" data-tab="pachete">Pachete</button>
+  </div>
 
-<div class="service-card">
-  <div class="service-card-inner">
+  <!-- PANEL: SERVICII INDIVIDUALE -->
+  <div class="services-panel active" id="panel-individuale">
+    <div class="services-grid">
 
-    <div class="service-card-front">
-      <img src="./images/DSC_7447.jpg" alt="Analiza Cromatică" class="service-img">
-      <h3 class="service-name">Analiza Cromatică</h3>
-      <p class="service-desc">Descoperă subtipologia ta prin metoda 4x4 Color System și paleta personalizată de culori care te avantajează cel mai bine.</p>
-      <span class="service-tag">Consultație individuală (750 lei)</span>
-      <a href="./analiza-cromatica-brasov.html"<p class="flip-hint">↻ click pentru detalii</p></a>
+      <div class="service-card">
+        <div class="service-card-inner">
+          <div class="service-card-front">
+            <img src="./images/DSC_7447.jpg" alt="Analiza Cromatică" class="service-img">
+            <h3 class="service-name">Analiza Cromatică</h3>
+            <p class="service-desc">Descoperă subtipologia ta prin metoda 4x4 Color System și paleta personalizată de culori care te avantajează cel mai bine.</p>
+            <span class="service-tag">Consultație individuală (750 lei)</span>
+            <p class="flip-hint">↻ click pentru detalii</p>
+          </div>
+          <div class="service-card-back">
+            <h3 class="service-name">Analiza Cromatică</h3>
+            <div class="divider"></div>
+            <p class="service-detail">✓ Durata: 1.5 ore</p>
+            <p class="service-detail">✓ Metoda The Universal 4x4 Color System by Ferial</p>
+            <p class="service-detail">✓ Identificare subton, supraton, nivel de contrast</p>
+            <p class="service-detail">✓ Explicații și exemple pentru subtipologia identificată</p>
+            <p class="service-detail">✓ Paleta personalizată de culori</p>
+            <p class="service-detail">✓ Recomandări pentru haine, accesorii și machiaj</p>
+            <a href="analiza-cromatica-brasov.html" class="back-more-link">Despre Analiza Cromatică →</a>
+            <span class="service-price">750 lei</span>
+            <a href="#contact" class="btn-flip">Programează acum</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-inner">
+          <div class="service-card-front">
+            <img src="./images/DSC_7628.jpg" alt="Analiză Cromatică + Automachiaj" class="service-img">
+<h3 class="service-name">Curs de Automachiaj</h3>
+            <p class="service-desc">Lecție completă și practică de automachiaj — tehnici, produse și pensule adaptate tipului tău de față și tenului.</p>
+            <span class="service-tag">Workshop individual (500 lei)</span>
+            <p class="flip-hint">↻ click pentru detalii</p>
+          </div>
+          <div class="service-card-back">
+            <h3 class="service-name">Curs de Automachiaj</h3>
+            <div class="divider"></div>
+            <p class="service-detail">✓ Durata: 2 ore</p>
+            <p class="service-detail">✓ Pregătirea tenului pas cu pas</p>
+            <p class="service-detail">✓ Fond de ten, corector, contur adaptat formei feței</p>
+            <p class="service-detail">✓ Tehnici pentru ochi, sprâncene și buze</p>
+            <p class="service-detail">✓ Practică ghidată — tu te machiezi, eu îndrumez</p>
+            <p class="service-detail">✓ Recomandări personalizate de produse și pensule</p>
+            <a href="automachiaj-brasov.html" class="back-more-link">Despre Curs Automachiaj →</a>
+            <span class="service-price">500 lei</span>
+            <a href="#contact" class="btn-flip">Programează acum</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-inner">
+          <div class="service-card-front">
+            <img src="./images/image_mod.jpg" alt="Machiaj Mireasă" class="service-img">
+            <h3 class="service-name">Machiaj Mireasă</h3>
+            <p class="service-desc">Machiaj de nuntă creat special pentru tine - finish natural, elegant și durabil. Împreună vom găsi look-ul perfect.</p>
+            <span class="service-tag">Zi specială (300 lei)</span>
+            <p class="flip-hint">↻ click pentru detalii</p>
+          </div>
+          <div class="service-card-back">
+            <h3 class="service-name">Machiaj Mireasă</h3>
+            <div class="divider"></div>
+            <p class="service-detail">✓ Durata: 1h și 30 minute</p>
+            <p class="service-detail">✓ Machiaj adaptat formei feței și a tenului</p>
+            <p class="service-detail">✓ Gene false de tip smocuri</p>
+            <p class="service-detail">✓ Rezistență de cel puțin 16h</p>
+            <p class="service-detail">✓ Consiliere skincare cu o lună înainte</p>
+            <p class="service-detail">✓ Proba de mireasă 25% reducere</p>
+            <span class="service-price">300 lei</span>
+            <a href="#contact" class="btn-flip">Programează acum</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-inner">
+          <div class="service-card-front">
+            <img src="./images/Media.jpg" alt="Machiaj Eveniment" class="service-img">
+            <h3 class="service-name">Machiaj Eveniment</h3>
+            <p class="service-desc">Pentru ocazii speciale - nunți, botezuri, petreceri, gale sau ședințe foto. Un machiaj care să te facă să strălucești exact cât trebuie.</p>
+            <span class="service-tag">Ocazii speciale (250 lei)</span>
+            <p class="flip-hint">↻ click pentru detalii</p>
+          </div>
+          <div class="service-card-back">
+            <h3 class="service-name">Machiaj Eveniment</h3>
+            <div class="divider"></div>
+            <p class="service-detail">✓ Durata: 1h și 20 minute</p>
+            <p class="service-detail">✓ Machiaj adaptat formei feței și a tenului</p>
+            <p class="service-detail">✓ Gene false de tip smocuri</p>
+            <p class="service-detail">✓ Rezistență de cel puțin 16h</p>
+            <p class="service-detail">✓ Consiliere skincare cu o săptămână înainte</p>
+            <span class="service-price">250 lei</span>
+            <a href="#contact" class="btn-flip">Programează acum</a>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
 
-    <div class="service-card-back">
-      <a href="./analiza-cromatica-brasov.html"<h3 class="service-name">Analiza Cromatică</h3></a>
+  <!-- PANEL: PACHETE -->
+  <div class="services-panel" id="panel-pachete">
+    <div class="services-grid cols-pachete">
+	
+	<div class="service-card">
+        <div class="service-card-inner">
+          <div class="service-card-front">
+            <img src="./images/image (3.1).jpg" alt="Deplasare la Domiciliu" class="service-img">
+            <h3 class="service-name">Beauty On the Go</h3>
+            <p class="service-desc">Vin eu la tine — machiaj la domiciliu sau la locația ta, pentru grupuri de minimum 3 persoane.</p>
+            <span class="service-tag">Minim 3 persoane + transport</span>
+            <p class="flip-hint">↻ click pentru detalii</p>
+          </div>
+          <div class="service-card-back">
+            <h3 class="service-name">Deplasare la Domiciliu</h3>
+            <div class="divider"></div>
+            <p class="service-detail">✓ Minim 3 persoane per deplasare</p>
+            <p class="service-detail">✓ Disponibil pentru machiaj eveniment</p>
+            <p class="service-detail">✓ Prețurile serviciilor rămân aceleași</p>
+            <p class="service-detail">✓ Taxă transport calculată în funcție de distanță</p>
+            <p class="service-detail">✓ Ideal pentru grupuri de prietene, nunți, petreceri</p>
+            <p class="service-detail">✓ Program flexibil la cerere</p>
+            <span class="service-price">La cerere</span>
+            <a href="#contact" class="btn-flip">Solicită detalii</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card-inner">
+          <div class="service-card-front">
+            <img src="./images/image (4.1).jpg" alt="Color Analysis Party" class="service-img">
+            <h3 class="service-name">Color Analysis Party</h3>
+            <p class="service-desc">Un eveniment exclusivist de analiză cromatică în grup — pentru petreceri private, team building-uri feminine, evenimente de brand sau bridal party.</p>
+            <span class="service-tag">Eveniment de grup (50 € / persoana)</span>
+            <p class="flip-hint">↻ click pentru detalii</p>
+          </div>
+          <div class="service-card-back">
+            <h3 class="service-name">Color Analysis Party</h3>
+            <div class="divider"></div>
+			<p class="service-detail">✓ Grup de minim 5 participante</p>
+            <p class="service-detail">✓ Analiză cromatică digitală prealabilă per participantă</p>
+            <p class="service-detail">✓ Introducere despre analiza cromatică la locație</p>
+            <p class="service-detail">✓ Analiză cromatică live ~10 min/persoană</p>
+            <p class="service-detail">✓ Identificare subton, supraton, tipologie</p>
+            <p class="service-detail">✓ Discount 30% la studio pentru participante</p>
+            <p class="service-detail">✓ Palete cromatice opțional (30 lei/paletă)</p>
+            <span class="service-price">50 € / persoana</span>
+            <a href="#contact" class="btn-flip">Solicită oferta</a>
+          </div>
+        </div>
+      </div>
 	  
-      <div class="divider"></div>
-      <p class="service-detail">✓ Durata: 1.5 ore</p>
-      <p class="service-detail">✓ Metoda The Universal 4x4 Color System by Ferial</p>
-      <p class="service-detail">✓ Identificare subton, supraton, nivel de contrast</p>
-	  <p class="service-detail">✓ Explicații și exemple pentru subtipologia identificată</p>
-      <p class="service-detail">✓ Paleta personalizată de culori</p>
-      <p class="service-detail">✓ Recomandări pentru haine, accesorii și machiaj</p>
-	  <a href="analiza-cromatica-brasov.html" class="back-more-link">Despre Analiza Cromatică →</a>
-      <span class="service-price">750 lei</span>
-      <a href="#contact" class="btn-flip">Programează acum</a>
-    </div>
-
-  </div>
-</div>
-
- <div class="service-card">
+	  <div class="service-card">
   <div class="service-card-inner">
-   <div class="service-card-front">
-      <img src="./images/DSC_7628.jpg" alt="Analiză Cromatică + Automachiaj" class="service-img">
-      <h3 class="service-name">Color & Makeup Session</h3>
-      <p class="service-desc">Combinăm analiza cromatică cu o lecție practică de automachiat, astfel încât să știi exact ce produse și tehnici se potrivesc tipului tău.</p>
-      <span class="service-tag">Analiză Cromatică &amp; Automachiaj<br>(1000 lei)
-      </span>
-	  <p class="flip-hint">↻ click pentru detalii</p>
+    <div class="service-card-front">
+      <img src="./images/image (1.1).jpg" alt="BFF Package" class="service-img">
+      <h3 class="service-name">BFF Package</h3>
+      <p class="service-desc">Vin împreună cu cea mai bună prietenă și descoperiți amândouă culorile care vă avantajează — o experiență unică, relaxată și memorabilă.</p>
+      <span class="service-tag">Duo Session (1200 lei)</span>
+      <p class="flip-hint">↻ click pentru detalii</p>
     </div>
- <div class="service-card-back">
-      <h3 class="service-name">Analiza Cromatică + Automachiaj</h3>
+    <div class="service-card-back">
+      <h3 class="service-name">BFF Package</h3>
       <div class="divider"></div>
-      <p class="service-detail">✓ Durata: 2 - 3 ore</p>
-	  <p class="service-detail">✓ Metoda The Universal 4x4 Color System by Ferial</p>
-      <p class="service-detail">✓ Analiză Cromatică scurtă</p>
-      <p class="service-detail">✓ Workshop Automachiaj (produse, tehnică, pensule)</p>
-	  <p class="service-detail">✓ Recomandări pentru machiaj pe subtipologie</p>
-      <p class="service-detail">✓ Paleta personalizată de culori</p>
-      <span class="service-price">1000 lei</span>
-      <a href="#contact" class="btn-flip">Programează acum</a>
-    </div>
- </div>
-</div>
-    <div class="service-card">
-	<div class="service-card-inner">
-	<div class="service-card-front">
-      <img src="./images/image_mod.jpg" alt="Machiaj Mireasă" class="service-img">
-      <h3 class="service-name">Machiaj Mireasă</h3>
-      <p class="service-desc">Machiaj de nuntă creat special pentru tine - finish natural, elegant și durabil. Impreună vom găsi look-ul perfect.</p>
-      <span class="service-tag">Zi specială (300 lei)</span>
-	  <p class="flip-hint">↻ click pentru detalii</p>
-    </div>
-	<div class="service-card-back">
-      <h3 class="service-name">Machiaj Mireasă</h3>
-      <div class="divider"></div>
-      <p class="service-detail">✓ Durata: 1h și 30 minute</p>
-	  <p class="service-detail">✓ Machiaj adaptat formei feței și a tenului</p>
-      <p class="service-detail">✓ Gene false de tip smocuri</p>
-      <p class="service-detail">✓ Rezistență de cel puțin 16h</p>
-	  <p class="service-detail">✓ Consiliere skincare cu o lună înainte de ziua evenimentului</p>
-      <p class="service-detail">✓ Proba de mireasă 20% reducere</p>
-      <span class="service-price">300 lei</span>
-      <a href="#contact" class="btn-flip">Programează acum</a>
-    </div>
- </div>
-</div>
-    <div class="service-card">
-	<div class="service-card-inner">
-	<div class="service-card-front">
-      <img src="./images/Media.jpg" alt="Machiaj Eveniment" class="service-img">
-      <h3 class="service-name">Machiaj Eveniment</h3>
-      <p class="service-desc">Pentru ocazii speciale - nunți, botezuri, petreceri, gale sau ședințe foto. Un machiaj care să te facă să strălucești exact cât trebuie.</p>
-      <span class="service-tag">Ocazii speciale (250 lei)</span>
-	  <p class="flip-hint">↻ click pentru detalii</p>
-	  </div>
-	  <div class="service-card-back">
-      <h3 class="service-name">Machiaj Eveniment</h3>
-      <div class="divider"></div>
-      <p class="service-detail">✓ Durata: 1h și 20 minute</p>
-	  <p class="service-detail">✓ Machiaj adaptat formei feței și a tenului</p>
-      <p class="service-detail">✓ Gene false de tip smocuri</p>
-      <p class="service-detail">✓ Rezistență de cel puțin 16h</p>
-	  <p class="service-detail">✓ Consiliere skincare cu o săptamână înainte de ziua evenimentului</p>
-      <span class="service-price">250 lei</span>
+      <p class="service-detail">✓ 2 persoane — prietene, surori, mamă & fiică</p>
+      <p class="service-detail">✓ Analiză cromatică pentru fiecare</p>
+      <p class="service-detail">✓ Comparați paletele și înțelegeți diferențele</p>
+      <p class="service-detail">✓ Recomandări de culori individuale</p>
+      <p class="service-detail">✓ Durata: 2 - 2.5 ore</p>
+      <p class="service-detail">✓ Economisești 300 lei față de 2 sesiuni separate</p>
+      <span class="service-price">1200 lei</span>
       <a href="#contact" class="btn-flip">Programează acum</a>
     </div>
   </div>
 </div>
+
+      <div class="service-card">
+        <div class="service-card-inner">
+          <div class="service-card-front">
+            <img src="./images/image (5.1).jpg" alt="Curs Automachiaj" class="service-img">
+             <h3 class="service-name">Color & Makeup Session</h3>
+            <p class="service-desc">Combinăm analiza cromatică cu o lecție practică de automachiaj, astfel încât să știi exact ce produse și tehnici se potrivesc tipului tău.</p>
+            <span class="service-tag">Analiză Cromatică &amp; Automachiaj (1000 lei)</span>
+            <p class="flip-hint">↻ click pentru detalii</p>
+          </div>
+          <div class="service-card-back">
+            <h3 class="service-name">Color & Makeup Session</h3>
+            <div class="divider"></div>
+            <p class="service-detail">✓ Durata: 2 - 3 ore</p>
+            <p class="service-detail">✓ Metoda The Universal 4x4 Color System by Ferial</p>
+            <p class="service-detail">✓ Analiză Cromatică scurtă</p>
+            <p class="service-detail">✓ Workshop Automachiaj (produse, tehnică, pensule)</p>
+            <p class="service-detail">✓ Recomandări pentru machiaj pe subtipologie</p>
+            <p class="service-detail">✓ Paleta personalizată de culori</p>
+            <span class="service-price">1000 lei</span>
+            <a href="#contact" class="btn-flip">Programează acum</a>
+          </div>
+        </div>
+      </div>
+
+      
+
+    </div>
+  </div>
+
 </section>
 
 <!-- GALLERY / PORTFOLIO -->
@@ -1480,8 +1635,9 @@
     <h2 class="section-title">Programează o<br><em>consultație</em></h2>
     <div class="divider"></div>
     <p class="section-body">
-      Fie că vrei să îți descoperi paleta cromatică, să te pregătești pentru nuntă sau
-      să strălucești la un eveniment special - sunt aici pentru tine.
+        Fie că vrei să îți descoperi paleta cromatică, să înveți să te machiezi singură,
+  să strălucești la nuntă sau la un eveniment special, să organizezi un Color Analysis Party
+  cu prietenele sau să vii cu BFF-ul tău la o sesiune duo — sunt aici pentru tine.
     </p>
     <div class="contact-info">
       <div class="contact-item">
@@ -1528,9 +1684,13 @@
       <select name="service">
         <option value="" disabled selected>Alege un serviciu</option>
         <option>Analiza Cromatică</option>
-        <option>Analiză Cromatică + Automachiaj</option>
+        <option>Curs de Automachiaj</option>
         <option>Machiaj Mireasă</option>
         <option>Machiaj Eveniment</option>
+		<option>Beauty On the Go</option>
+		<option>Color Analysis Party</option>
+		<option>BFF Package</option>
+		<option>Analiză Cromatică + Automachiaj</option>
       </select>
     </div>
     <div class="form-group">
@@ -1653,6 +1813,16 @@ document.querySelectorAll('.service-card').forEach(card => {
 
 });
 </script>
-
+<script>
+  document.querySelectorAll('.services-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.services-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.services-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+      document.querySelectorAll('.service-card').forEach(card => card.classList.remove('flipped'));
+    });
+  });
+</script>
 </body>
 </html>
